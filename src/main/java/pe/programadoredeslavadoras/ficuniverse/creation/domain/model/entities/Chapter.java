@@ -1,6 +1,8 @@
 package pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,10 +16,25 @@ public class Chapter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name= "title", length = 30)
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 50)
+    @Column(name= "title", length = 50, nullable = false)
     private String title;
-    @Column(name= "content")
+
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 70000)
+    @Column(name= "content", length = 70000, nullable = false)
     private String content;
 
+    @Min(value = 1)
+    @Max(value = 200)
+    @Column(name= "chapter_order")
+    private Integer chapterOrder;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fanfic_id")
+    private Fanfic fanfic;
 }
