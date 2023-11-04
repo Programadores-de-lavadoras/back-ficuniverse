@@ -24,11 +24,6 @@ public class CategoryServiceImpl implements CategoryService {
     private  final CategoryRepository categoryRepository;
     private final Validator validator;
 
-    public CategoryServiceImpl(CategoryRepository categoryRepository, Validator validator) {
-        this.categoryRepository = categoryRepository;
-        this.validator = validator;
-    }
-
     @Override
     public List<Category> getAll() {
         return categoryRepository.findAll();

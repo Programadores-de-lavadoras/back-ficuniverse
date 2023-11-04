@@ -26,7 +26,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     #    JDBC : SGDB :// HOST : PORT / DB
-    url: jdbc:postgresql://localhost:5432/ficuniverse
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: admin
   jpa:
