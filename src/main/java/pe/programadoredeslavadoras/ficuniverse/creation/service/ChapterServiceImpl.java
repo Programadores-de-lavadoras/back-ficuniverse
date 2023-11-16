@@ -4,6 +4,7 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Chapter;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.persistence.ChapterRepository;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.service.ChapterService;
@@ -23,6 +24,7 @@ public class ChapterServiceImpl implements ChapterService {
     private final Validator validator;
 
 
+    @Transactional
     @Override
     public Chapter save(Chapter chapter) {
         Set<ConstraintViolation<Chapter>> violation = validator.validate(chapter);
@@ -32,16 +34,19 @@ public class ChapterServiceImpl implements ChapterService {
         throw new ResourceValidationException("Chapter",violation);
     }
 
+    @Transactional
     @Override
     public Chapter update(Chapter chapter) {
         return null;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Chapter> fetchAll() {
         return chapterRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Chapter fetchById(Integer id) {
         if(chapterRepository.existsById(id)){
@@ -50,6 +55,7 @@ public class ChapterServiceImpl implements ChapterService {
         throw new FetchIdNotFoundException("Chapter", id);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Chapter fetchByTitle(String title) {
         Optional<Chapter> optionalChapter = chapterRepository.sqlChapterByTitle(title);
@@ -60,6 +66,7 @@ public class ChapterServiceImpl implements ChapterService {
 
     }
 
+    @Transactional
     @Override
     public boolean deleteById(Integer id) {
         if (chapterRepository.existsById(id)){
@@ -72,14 +79,17 @@ public class ChapterServiceImpl implements ChapterService {
         throw new FetchIdNotFoundException("Chapter", id);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Chapter> fetchChaptersByFanficId(Integer fanficId) {
         //return chapterRepository.findChaptersByFanficId(fanficId);
         return chapterRepository.sqlChaptersByFanficId(fanficId);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Chapter> fetchByChapterOrderBetween(Integer orderInit, Integer orderEnd) {
         return chapterRepository.sqlChaptersBetweenChapterOrder(orderInit,orderEnd);
+        //return chapterRepository.findByChapterOrderBetween(orderInit,orderEnd);
     }
 }
