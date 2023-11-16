@@ -1,4 +1,4 @@
-package pe.programadoredeslavadoras.ficuniverse.shared.exception;
+package pe.programadoredeslavadoras.ficuniverse.shared.exceptions;
 
 import jakarta.validation.ConstraintViolation;
 import org.springframework.http.HttpStatus;
@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
+
 public class ResourceValidationException extends RuntimeException{
     public ResourceValidationException(String resourceName, String message) {
         super(resourceName + ": " + message);
