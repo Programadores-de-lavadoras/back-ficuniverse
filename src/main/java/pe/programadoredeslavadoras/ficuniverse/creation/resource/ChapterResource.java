@@ -1,8 +1,6 @@
 package pe.programadoredeslavadoras.ficuniverse.creation.resource;
 
-import jakarta.validation.constraints.*;
 import lombok.*;
-import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Fanfic;
 
 @Getter
 @Setter
@@ -13,5 +11,4 @@ public class ChapterResource {
     private String title;
     private String content;
     private Integer chapterOrder;
-    //private Fanfic fanfic;
 }

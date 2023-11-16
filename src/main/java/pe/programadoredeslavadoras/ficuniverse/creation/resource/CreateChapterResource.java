@@ -1,6 +1,5 @@
 package pe.programadoredeslavadoras.ficuniverse.creation.resource;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
