@@ -1,4 +1,4 @@
-package pe.programadoredeslavadoras.ficuniverse.creation.domain.persistance;
+package pe.programadoredeslavadoras.ficuniverse.creation.domain.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

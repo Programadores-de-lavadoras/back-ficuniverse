@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Category;
-import pe.programadoredeslavadoras.ficuniverse.creation.domain.persistance.CategoryRepository;
+import pe.programadoredeslavadoras.ficuniverse.creation.domain.persistence.CategoryRepository;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.service.CategoryService;
 import pe.programadoredeslavadoras.ficuniverse.shared.exception.ResourceNotFoundException;
 import pe.programadoredeslavadoras.ficuniverse.shared.exception.ResourceValidationException;

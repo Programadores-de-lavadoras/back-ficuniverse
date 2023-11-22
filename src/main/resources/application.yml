@@ -30,3 +30,10 @@ pringdoc:
   swagger-ui:
     path: /swagger-ui/index.html
 
+application:
+  security:
+    jwt:
+      secret-key: 3777217A25432A462D4A614E645267556B58703273357538782F413F4428472B
+      expiration: 86400000
+      refresh-token:
+        expiration: 604800000
