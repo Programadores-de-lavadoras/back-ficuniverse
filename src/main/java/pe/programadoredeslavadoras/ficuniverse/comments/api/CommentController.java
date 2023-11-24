@@ -29,9 +29,9 @@ public class CommentController {
 
 
     @Operation(
-            summary = "Add a new chapter to the schedule" ,
-            description = "Add a new chapter to the schedule",
-            operationId = "addChapter",
+            summary = "Add a new comment to the fanfic" ,
+            description = "Add a new comment to the fanfic",
+            operationId = "addComment",
             responses = {
                     @ApiResponse(
                             responseCode = "201",
@@ -54,7 +54,7 @@ public class CommentController {
     @PostMapping
     public ResponseEntity<CommentResource> save(@RequestBody CreateCommentResource resource){
         return new ResponseEntity<>(
-              /*  commentMapper.toResource(commentService.save(commentService.toEntity(resource))),*/
+                commentMapper.toResource(commentService.save(commentMapper.toEntity(resource))),
                 HttpStatus.CREATED
         );
     }
@@ -65,9 +65,9 @@ public class CommentController {
     }
 
     @Operation(
-            summary = "Get a student by its id" ,
-            description = "Gets a student from the schedule fetched by its id",
-            operationId = "getStudentById",
+            summary = "Get a comment by its id" ,
+            description = "Gets a comment from the fanfic fetched by its id",
+            operationId = "getCommentById",
             responses = {
                     @ApiResponse (
                             responseCode = "201",
@@ -98,6 +98,11 @@ public class CommentController {
     @GetMapping("tag?{tagId}")
     public ResponseEntity<List<Comment>> fetchCommentsByTagId(@PathVariable("tagId") Integer tagId){
         return ResponseEntity.ok(commentService.fetchCommentsByTagId(tagId));
+    }
+
+    @GetMapping("comment/{upVote}/{downVote}")
+    public ResponseEntity<List<Comment>> fetchCommentsByupVotes(@PathVariable("upVote") Integer upVote, @PathVariable("downVote") Integer downVote){
+        return ResponseEntity.ok(commentService.fetchCommentsByupVotes(upVote, downVote));
     }
 
     @DeleteMapping("{id}")
