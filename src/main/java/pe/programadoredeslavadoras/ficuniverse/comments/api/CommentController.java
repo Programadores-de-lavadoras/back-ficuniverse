@@ -95,9 +95,9 @@ public class CommentController {
         );
     }
 
-    @GetMapping("tag?{tagId}")
-    public ResponseEntity<List<Comment>> fetchCommentsByTagId(@PathVariable("tagId") Integer tagId){
-        return ResponseEntity.ok(commentService.fetchCommentsByTagId(tagId));
+    @GetMapping("theme?{themeId}")
+    public ResponseEntity<List<Comment>> fetchCommentsByTagId(@PathVariable("themeId") Integer themeId){
+        return ResponseEntity.ok(commentService.fetchCommentsByThemeId(themeId));
     }
 
     @GetMapping("comment/{upVote}/{downVote}")

@@ -68,8 +68,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> fetchCommentsByTagId(Integer tagId) {
-        return commentRepository.sqlCommentsByTagId(tagId);
+    public List<Comment> fetchCommentsByThemeId(Integer themeId) {
+        return commentRepository.sqlCommentsByThemeId(themeId);
     }
 
     @Transactional(readOnly = true)
