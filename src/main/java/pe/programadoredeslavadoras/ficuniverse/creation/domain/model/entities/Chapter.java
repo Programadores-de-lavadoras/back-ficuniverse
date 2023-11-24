@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+import pe.programadoredeslavadoras.ficuniverse.fanfic.domain.model.entitie.Fanfic;
 
 @Entity
 @Getter
