@@ -9,6 +9,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pe.programadoredeslavadoras.ficuniverse.comments.domain.model.entities.Comment;
 
 import java.util.Collection;
 import java.util.List;

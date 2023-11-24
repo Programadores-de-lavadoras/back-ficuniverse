@@ -4,11 +4,13 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.programadoredeslavadoras.ficuniverse.comments.domain.model.entities.Comment;
 import pe.programadoredeslavadoras.ficuniverse.comments.domain.persistence.CommentRepository;
 import pe.programadoredeslavadoras.ficuniverse.comments.domain.service.CommentService;
-import pe.programadoredeslavadoras.ficuniverse.shared.exception.FetchNotFoundException;
-import pe.programadoredeslavadoras.ficuniverse.shared.exception.ResourceValidationException;
+import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.FetchIdNotFoundException;
+
+import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.ResourceValidationException;
 
 import java.util.List;
 import java.util.Set;
@@ -18,28 +20,56 @@ import java.util.Set;
 public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
-
     private final Validator validator;
 
+
+    @Transactional
     @Override
     public Comment save(Comment comment) {
-        Set<ConstraintViolation<Comment>> violations = validator.validate(comment);
-        if(violations.isEmpty()) {
+        Set<ConstraintViolation<Comment>> violation = validator.validate(comment);
+        if(violation.isEmpty()){
             return commentRepository.save(comment);
         }
-        throw new ResourceValidationException("Comment", violations);
+        throw new ResourceValidationException("Comment",violation);
     }
 
+    @Transactional
     @Override
-    public List<Comment> obtainAll() {
+    public Comment update(Comment comment) {
+        return null;
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Comment> fetchAll() {
         return commentRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
     @Override
-    public Comment fetchById(Integer Id) {
-        if (commentRepository.existsById(Id)) {
-            commentRepository.findById(Id).orElseThrow();
+    public Comment fetchById(Integer id) {
+        if(commentRepository.existsById(id)){
+            return commentRepository.findById(id).orElseThrow();
         }
-        throw new FetchNotFoundException("Student", "Id", Id);
+        throw new FetchIdNotFoundException("Comment", id);
     }
+
+    @Transactional
+    @Override
+    public boolean deleteById(Integer id) {
+        if (commentRepository.existsById(id)){
+            commentRepository.deleteById(id);
+            if(commentRepository.existsById(id)){
+                return false;
+            }
+            return true;
+        }
+        throw new FetchIdNotFoundException("Comment", id);
+    }
+
+    @Override
+    public List<Comment> fetchCommentsByTagId(Integer tagId) {
+        return commentRepository.sqlCommentsByTagId(tagId);
+    }
+
 }
