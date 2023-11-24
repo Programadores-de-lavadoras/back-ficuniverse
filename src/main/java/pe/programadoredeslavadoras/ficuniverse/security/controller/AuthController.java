@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import pe.programadoredeslavadoras.ficuniverse.security.domain.persistence.UserRepository;
 import pe.programadoredeslavadoras.ficuniverse.security.domain.service.AuthService;
 import pe.programadoredeslavadoras.ficuniverse.security.resource.AuthResponse;
 import pe.programadoredeslavadoras.ficuniverse.security.resource.CreateUserResource;

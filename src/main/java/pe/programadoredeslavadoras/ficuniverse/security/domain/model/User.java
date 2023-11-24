@@ -27,21 +27,21 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    //@NotNull
-    //@NotBlank
-    //@Size(min = 1, max = 15)
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 15)
     @Column(name = "user_name", nullable = false, length = 100)
     private String userName;
 
-    //@NotNull
-    //@NotBlank
-    //@Size(min = 1, max = 50)
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 50)
     @Column(name = "email", nullable = false, length = 100)
     private String email;
 
-    //@NotNull
-    //@NotBlank
-    //@Size(min = 1, max = 50)
+    @NotNull
+    @NotBlank
+    @Size(min = 1, max = 50)
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
@@ -52,7 +52,7 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
 
-    //@Override
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
