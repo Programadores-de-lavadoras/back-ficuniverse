@@ -1,5 +1,6 @@
 package pe.programadoredeslavadoras.ficuniverse.fanfic.resource;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -35,7 +36,8 @@ public class CreateFanficResource {
     @Size(min = 5, max = 30)
     private String status;
 
-    @Size(min = 5, max = 20)
-    private String saga;
+    private String thumbnail;
+    private Long favorites;
+    private Long views;
 
 }

@@ -33,12 +33,12 @@ public class Fanfic {
     private String author;
 
 
-    @Column(name = "summary", columnDefinition = "TEXT")
+    @Column(name = "summary", columnDefinition = "TEXT", nullable = false)
     private String summary;
 
     @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "publication_date")
+    @Column(name = "publication_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date publicationDate;
 
@@ -47,10 +47,17 @@ public class Fanfic {
     private String language;
 
     @Size(min = 5, max = 30)
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     private String status;
 
-    @Size(min = 5, max = 20)
-    @Column(name = "saga")
-    private String saga;
+
+    @Column(name = "thumbnail", nullable = false)
+    private String thumbnail;
+
+    @Column(name = "favorites")
+    private Long favorites;
+
+    @Column(name = "views")
+    private Long views;
+
 }

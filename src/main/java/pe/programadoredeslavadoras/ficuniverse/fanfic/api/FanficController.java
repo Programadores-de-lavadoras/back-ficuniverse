@@ -59,7 +59,7 @@ public class FanficController {
 
     @GetMapping
     public ResponseEntity<List<Fanfic>> fetchAll(){
-        return ResponseEntity.ok(fanficService.fechAll());
+        return ResponseEntity.ok(fanficService.fetchAll());
     }
 
     @Operation(

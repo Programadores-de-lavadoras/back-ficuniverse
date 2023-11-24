@@ -40,7 +40,7 @@ public class FanficServiceImpl implements FanficService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<Fanfic> fechAll() {
+    public List<Fanfic> fetchAll() {
         return fanficRepository.findAll();
     }
 
