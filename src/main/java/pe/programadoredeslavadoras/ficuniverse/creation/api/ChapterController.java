@@ -27,8 +27,8 @@ public class ChapterController {
 
 
     @Operation(
-            summary = "Add a new chapter to the schedule" ,
-            description = "Add a new chapter to the schedule",
+            summary = "Add a new chapter to the fanfic" ,
+            description = "Add a new chapter to the fanfic",
             operationId = "addChapter",
             responses = {
                     @ApiResponse(
@@ -63,9 +63,9 @@ public class ChapterController {
     }
 
     @Operation(
-            summary = "Get a student by its id" ,
-            description = "Gets a student from the schedule fetched by its id",
-            operationId = "getStudentById",
+            summary = "Get a chapter by its id" ,
+            description = "Gets a chapter from the fanfic fetched by its id",
+            operationId = "getChapterById",
             responses = {
                     @ApiResponse (
                             responseCode = "201",
