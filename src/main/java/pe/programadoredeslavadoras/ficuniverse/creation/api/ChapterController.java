@@ -18,9 +18,10 @@ import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.InternalServerE
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 @RestController
-@RequestMapping("chapters")
+@RequestMapping("/api/ficuniverse/v1/chapters")
 public class ChapterController {
     private final ChapterService chapterService;
     private final ChapterMapper chapterMapper;

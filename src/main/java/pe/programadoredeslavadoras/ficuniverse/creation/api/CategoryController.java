@@ -8,9 +8,10 @@ import pe.programadoredeslavadoras.ficuniverse.creation.domain.service.CategoryS
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 @RestController
-@RequestMapping("categories")
+@RequestMapping("/api/ficuniverse/v1/categories")
 public class CategoryController {
     private final CategoryService categoryService;
 
