@@ -17,4 +17,7 @@ public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
   @Query(value = "SELECT * from comments WHERE tag_id = :tagId", nativeQuery = true)
   List<Comment> sqlCommentsByTagId(Integer tagId);
+
+  @Query(value = "SELECT * FROM comments WHERE upVote > downVote", nativeQuery = true)
+  List<Comment> sqlCommentsByupVotes(Integer upVote, Integer downVote);
 }
