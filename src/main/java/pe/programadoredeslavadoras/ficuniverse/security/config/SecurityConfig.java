@@ -23,7 +23,7 @@ public class SecurityConfig {
         httpSecurity.cors().and()
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/ficuniverse/v1/auth/**").permitAll()
-                        .requestMatchers("/api/ficuniverse/v1/users","/api/ficuniverse/v1/categories","/api/ficuniverse/v1/chapters" ).authenticated()
+                        .requestMatchers("/api/ficuniverse/v1/users","/api/ficuniverse/v1/categories","/api/ficuniverse/v1/chapters", "/api/ficuniverse/v1/fanfics/**" ).authenticated()
                         .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session
