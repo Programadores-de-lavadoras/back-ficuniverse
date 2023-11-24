@@ -42,7 +42,7 @@ public class User implements UserDetails {
 
     @NotNull
     @NotBlank
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
