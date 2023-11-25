@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Chapter;
+import pe.programadoredeslavadoras.ficuniverse.creation.resource.ChapterResource;
 import pe.programadoredeslavadoras.ficuniverse.fanfic.domain.model.entitie.Fanfic;
 import pe.programadoredeslavadoras.ficuniverse.fanfic.domain.service.FanficService;
 import pe.programadoredeslavadoras.ficuniverse.fanfic.mapping.FanficMapper;
@@ -16,6 +18,7 @@ import pe.programadoredeslavadoras.ficuniverse.fanfic.resource.FanficResource;
 import pe.programadoredeslavadoras.ficuniverse.shared.exception.InternalServerErrorException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @AllArgsConstructor
@@ -58,8 +61,10 @@ public class FanficController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Fanfic>> fetchAll(){
-        return ResponseEntity.ok(fanficService.fetchAll());
+    public ResponseEntity<List<FanficResource>> fetchAll(){
+        return new ResponseEntity<>(fanficService.fetchAll().stream().map(
+                this::convertToResource)
+                .collect(Collectors.toList()), HttpStatus.OK);
     }
 
     @Operation(
@@ -107,5 +112,9 @@ public class FanficController {
             return ResponseEntity.noContent().build();
         }
         throw new InternalServerErrorException("Fanfic", "id", String.valueOf(id), "deleted");
+    }
+
+    private FanficResource convertToResource(Fanfic fanfic){
+        return fanficMapper.toResource(fanfic);
     }
 }

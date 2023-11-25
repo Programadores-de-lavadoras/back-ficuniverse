@@ -1,5 +1,6 @@
 package pe.programadoredeslavadoras.ficuniverse.fanfic.domain.model.entitie;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -8,8 +9,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Chapter;
+import pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity.Profile;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -60,4 +64,12 @@ public class Fanfic {
     @Column(name = "views")
     private Long views;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "fanfic", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Chapter> chapters;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="profile_id", referencedColumnName = "id")
+    public Profile profile;
 }

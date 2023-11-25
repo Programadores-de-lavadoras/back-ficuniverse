@@ -6,7 +6,7 @@ spring:
     #    JDBC : SGDB :// HOST : PORT / DB
     url: jdbc:postgresql://localhost:5432/ficuniverse
     username: postgres
-    password: 12345
+    password: password
   jpa:
     database: postgresql
     hibernate:

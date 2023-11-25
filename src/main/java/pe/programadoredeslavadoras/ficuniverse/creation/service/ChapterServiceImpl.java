@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Chapter;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.persistence.ChapterRepository;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.service.ChapterService;
+import pe.programadoredeslavadoras.ficuniverse.fanfic.domain.persistence.FanficRepository;
 import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.FetchIdNotFoundException;
 import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.FetchNotFoundException;
 import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.ResourceValidationException;
@@ -19,17 +20,21 @@ import java.util.Set;
 public class ChapterServiceImpl implements ChapterService {
 
     private final ChapterRepository chapterRepository;
+    private final FanficRepository fanficRepository;
     private final Validator validator;
-
 
     @Transactional
     @Override
-    public Chapter save(Chapter chapter) {
-        Set<ConstraintViolation<Chapter>> violation = validator.validate(chapter);
-        if(violation.isEmpty()){
-            return chapterRepository.save(chapter);
+    public Chapter createChapter(Integer fanficId, Chapter chapter) {
+        if(fanficRepository.existsById(fanficId)) {
+            Set<ConstraintViolation<Chapter>> violation = validator.validate(chapter);
+            if (violation.isEmpty()) {
+                chapter.setFanfic(fanficRepository.findById(fanficId).orElseThrow());
+                return chapterRepository.save(chapter);
+            }
+            throw new ResourceValidationException("Chapter",violation);
         }
-        throw new ResourceValidationException("Chapter",violation);
+        throw new ResourceValidationException("fanfic","Fanfic not found");
     }
 
     @Transactional

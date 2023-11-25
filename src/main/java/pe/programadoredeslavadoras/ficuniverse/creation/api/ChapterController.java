@@ -12,9 +12,12 @@ import pe.programadoredeslavadoras.ficuniverse.creation.domain.service.ChapterSe
 import pe.programadoredeslavadoras.ficuniverse.creation.mapping.ChapterMapper;
 import pe.programadoredeslavadoras.ficuniverse.creation.resource.ChapterResource;
 import pe.programadoredeslavadoras.ficuniverse.creation.resource.CreateChapterResource;
+import pe.programadoredeslavadoras.ficuniverse.security.domain.model.User;
+import pe.programadoredeslavadoras.ficuniverse.security.resource.UserResource;
 import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.InternalServerErrorException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @AllArgsConstructor
@@ -49,17 +52,19 @@ public class ChapterController {
                     )
             }
     )
-    @PostMapping
-    public ResponseEntity<ChapterResource> save(@RequestBody CreateChapterResource resource){
+    @PostMapping("fanfic/{id}")
+    public ResponseEntity<ChapterResource> save(@PathVariable(name = "id") Integer id,@RequestBody CreateChapterResource resource){
         return new ResponseEntity<>(
-            chapterMapper.toResource(chapterService.save(chapterMapper.toEntity(resource))),
+            chapterMapper.toResource(chapterService.createChapter(id,chapterMapper.toEntity(resource))),
                 HttpStatus.CREATED
         );
     }
 
     @GetMapping
-    public ResponseEntity<List<Chapter>> fetchAll(){
-        return ResponseEntity.ok(chapterService.fetchAll());
+    public ResponseEntity<List<ChapterResource>> fetchAll(){
+        return new ResponseEntity<>(chapterService.fetchAll().stream().map(
+                this::convertToResource)
+                .collect(Collectors.toList()),HttpStatus.OK);
     }
 
     @Operation(
@@ -129,4 +134,9 @@ public class ChapterController {
         }
         throw new InternalServerErrorException("Chapter", "id", String.valueOf(id), "deleted");
     }
+
+    private ChapterResource convertToResource(Chapter chapter){
+        return chapterMapper.toResource(chapter);
+    }
+
 }
