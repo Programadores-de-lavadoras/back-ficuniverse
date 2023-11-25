@@ -7,7 +7,9 @@ import lombok.*;
 @With
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ChapterResource {
+    private Integer id;
     private String title;
     private String content;
     private Integer chapterOrder;

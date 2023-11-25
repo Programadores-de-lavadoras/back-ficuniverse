@@ -14,7 +14,7 @@ public interface CommentService {
     Comment fetchById(Integer id);
 
     boolean deleteById(Integer id);
-    List<Comment> fetchCommentsByTagId(Integer tagId);
+    List<Comment> fetchCommentsByThemeId(Integer tagId);
 
     List<Comment> fetchCommentsByupVotes(Integer upVote, Integer downVote);
 }

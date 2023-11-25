@@ -1,6 +1,10 @@
 package pe.programadoredeslavadoras.ficuniverse.fanfic.resource;
 
+import jakarta.persistence.Column;
 import lombok.*;
+import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Chapter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,5 +19,8 @@ public class FanficResource {
     private String publicationDate;
     private String language;
     private String status;
-    private String saga;
+    private String thumbnail;
+    private Long favorites;
+    private Long views;
+    private List<Chapter> chapters;
 }

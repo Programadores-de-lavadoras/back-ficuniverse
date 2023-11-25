@@ -6,10 +6,8 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import pe.programadoredeslavadoras.ficuniverse.security.domain.model.User;
 
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -46,7 +44,7 @@ public class Comment {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tag_id")
-    private Tag tag;
+    @JoinColumn(name = "theme_id")
+    private Theme theme;
 
 }

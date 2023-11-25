@@ -8,7 +8,7 @@ public interface FanficService {
     Fanfic save(Fanfic fanfic);
     Fanfic update(Fanfic fanfic);
 
-    List<Fanfic> fechAll();
+    List<Fanfic> fetchAll();
 
     Fanfic fetchById(Integer id);
 

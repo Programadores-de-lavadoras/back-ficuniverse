@@ -6,6 +6,7 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import pe.programadoredeslavadoras.ficuniverse.fanfic.domain.model.entitie.Fanfic;
+import pe.programadoredeslavadoras.ficuniverse.security.domain.model.User;
 
 @Entity
 @Getter
@@ -34,8 +35,9 @@ public class Chapter {
     @Column(name= "chapter_order")
     private Integer chapterOrder;
 
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fanfic_id")
-    private Fanfic fanfic;
+    @JoinColumn(name="fanfic_id", referencedColumnName = "id")
+    public Fanfic fanfic;
 }
