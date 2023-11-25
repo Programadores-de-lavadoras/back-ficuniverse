@@ -1,6 +1,7 @@
 package pe.programadoredeslavadoras.ficuniverse.comments.domain.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Comment {
     @Column(name="content", length = 500, nullable = false)
     private String content;
 
-    @Past
+    @JsonProperty
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     @Column(name = "publication_date")

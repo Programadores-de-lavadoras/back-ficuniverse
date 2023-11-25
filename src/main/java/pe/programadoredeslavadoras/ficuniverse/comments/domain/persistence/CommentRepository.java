@@ -19,5 +19,5 @@ public interface CommentRepository extends JpaRepository<Comment, Integer> {
   List<Comment> sqlCommentsByThemeId(Integer themeId);
 
   @Query(value = "SELECT * FROM comments WHERE upVote > downVote", nativeQuery = true)
-  List<Comment> sqlCommentsByupVotes(Integer upVote, Integer downVote);
+  List<Comment> sqlCommentsByupVotes(Integer id);
 }

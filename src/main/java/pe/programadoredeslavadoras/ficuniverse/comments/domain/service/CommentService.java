@@ -16,5 +16,5 @@ public interface CommentService {
     boolean deleteById(Integer id);
     List<Comment> fetchCommentsByThemeId(Integer tagId);
 
-    List<Comment> fetchCommentsByupVotes(Integer upVote, Integer downVote);
+    List<Comment> fetchCommentsByupVotes(Integer id);
 }

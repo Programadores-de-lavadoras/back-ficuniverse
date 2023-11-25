@@ -100,9 +100,9 @@ public class CommentController {
         return ResponseEntity.ok(commentService.fetchCommentsByThemeId(themeId));
     }
 
-    @GetMapping("comment/{upVote}/{downVote}")
-    public ResponseEntity<List<Comment>> fetchCommentsByupVotes(@PathVariable("upVote") Integer upVote, @PathVariable("downVote") Integer downVote){
-        return ResponseEntity.ok(commentService.fetchCommentsByupVotes(upVote, downVote));
+    @GetMapping("votes/{id}")
+    public ResponseEntity<List<Comment>> fetchCommentsByupVotes(@PathVariable("id") Integer id){
+        return ResponseEntity.ok(commentService.fetchCommentsByupVotes(id));
     }
 
     @DeleteMapping("{id}")

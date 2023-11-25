@@ -74,8 +74,8 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<Comment> fetchCommentsByupVotes(Integer upVote, Integer downVote) {
-        return commentRepository.sqlCommentsByupVotes(upVote,downVote);
+    public List<Comment> fetchCommentsByupVotes(Integer id) {
+        return commentRepository.sqlCommentsByupVotes(id);
     }
 
 }
