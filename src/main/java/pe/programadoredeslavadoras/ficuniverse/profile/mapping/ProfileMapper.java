@@ -1,10 +1,10 @@
-package pe.programadoredeslavadoras.ficuniverse.profile2.mapping;
+package pe.programadoredeslavadoras.ficuniverse.profile.mapping;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity.Profile;
-import pe.programadoredeslavadoras.ficuniverse.profile2.resource.CreateProfileResource;
-import pe.programadoredeslavadoras.ficuniverse.profile2.resource.ProfileResource;
+import pe.programadoredeslavadoras.ficuniverse.profile.domain.model.entity.Profile;
+import pe.programadoredeslavadoras.ficuniverse.profile.resource.CreateProfileResource;
+import pe.programadoredeslavadoras.ficuniverse.profile.resource.ProfileResource;
 import pe.programadoredeslavadoras.ficuniverse.shared.mapping.EnhancedModelMapper;
 
 import java.io.Serializable;

@@ -12,8 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "tag")
-public class Tag {
+@Table(name = "theme")
+public class Theme {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,6 @@ public class Tag {
   @Column(name="category", length = 50, nullable = false)
   private String category;
 
-  @OneToMany(mappedBy = "tag")
+  @OneToMany(mappedBy = "theme")
   private List<Comment> comments;
 }

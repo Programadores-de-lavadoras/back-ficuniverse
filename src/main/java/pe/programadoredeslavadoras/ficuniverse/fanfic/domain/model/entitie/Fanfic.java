@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 import pe.programadoredeslavadoras.ficuniverse.creation.domain.model.entities.Chapter;
-import pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity.Profile;
+import pe.programadoredeslavadoras.ficuniverse.profile.domain.model.entity.Profile;
 
 import java.util.Date;
 import java.util.List;

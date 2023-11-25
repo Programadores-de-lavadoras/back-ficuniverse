@@ -1,4 +1,4 @@
-package pe.programadoredeslavadoras.ficuniverse.profile2.resource;
+package pe.programadoredeslavadoras.ficuniverse.profile.resource;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
