@@ -22,7 +22,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.cors().and()
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/ficuniverse/v1/auth/**").permitAll()
+                        .requestMatchers("/api/ficuniverse/v1/auth/**", "/api/ficuniverse/v1/fanfics/**").permitAll()
                         .requestMatchers("/api/ficuniverse/v1/users/**","/api/ficuniverse/v1/categories/**","/api/ficuniverse/v1/chapters/**", "/api/ficuniverse/v1/fanfics/**", "/api/ficuniverse/v1/profiles/**").authenticated()
                         .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
