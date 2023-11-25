@@ -1,4 +1,4 @@
-package pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity;
+package pe.programadoredeslavadoras.ficuniverse.profile.domain.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

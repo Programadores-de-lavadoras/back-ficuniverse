@@ -1,6 +1,6 @@
-package pe.programadoredeslavadoras.ficuniverse.profile2.domain.service;
+package pe.programadoredeslavadoras.ficuniverse.profile.domain.service;
 
-import pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity.Profile;
+import pe.programadoredeslavadoras.ficuniverse.profile.domain.model.entity.Profile;
 
 import java.util.List;
 

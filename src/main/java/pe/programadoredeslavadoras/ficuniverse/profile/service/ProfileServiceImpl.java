@@ -1,13 +1,13 @@
-package pe.programadoredeslavadoras.ficuniverse.profile2.service;
+package pe.programadoredeslavadoras.ficuniverse.profile.service;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity.Profile;
-import pe.programadoredeslavadoras.ficuniverse.profile2.domain.persistence.ProfileRepository;
-import pe.programadoredeslavadoras.ficuniverse.profile2.domain.service.ProfileService;
+import pe.programadoredeslavadoras.ficuniverse.profile.domain.model.entity.Profile;
+import pe.programadoredeslavadoras.ficuniverse.profile.domain.persistence.ProfileRepository;
+import pe.programadoredeslavadoras.ficuniverse.profile.domain.service.ProfileService;
 import pe.programadoredeslavadoras.ficuniverse.shared.exception.ResourceValidationException;
 import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.FetchIdNotFoundException;
 import pe.programadoredeslavadoras.ficuniverse.shared.exceptions.FetchNotFoundException;
