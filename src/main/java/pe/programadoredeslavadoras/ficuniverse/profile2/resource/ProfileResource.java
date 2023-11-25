@@ -1,4 +1,4 @@
-package pe.programadoredeslavadoras.ficuniverse.profile.resource;
+package pe.programadoredeslavadoras.ficuniverse.profile2.resource;
 
 import lombok.*;
 import pe.programadoredeslavadoras.ficuniverse.fanfic.domain.model.entitie.Fanfic;

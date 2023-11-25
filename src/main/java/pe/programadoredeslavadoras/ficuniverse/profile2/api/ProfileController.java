@@ -1,14 +1,14 @@
-package pe.programadoredeslavadoras.ficuniverse.profile.api;
+package pe.programadoredeslavadoras.ficuniverse.profile2.api;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.programadoredeslavadoras.ficuniverse.profile.domain.model.entity.Profile;
-import pe.programadoredeslavadoras.ficuniverse.profile.domain.service.ProfileService;
-import pe.programadoredeslavadoras.ficuniverse.profile.mapping.ProfileMapper;
-import pe.programadoredeslavadoras.ficuniverse.profile.resource.CreateProfileResource;
-import pe.programadoredeslavadoras.ficuniverse.profile.resource.ProfileResource;
+import pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity.Profile;
+import pe.programadoredeslavadoras.ficuniverse.profile2.domain.service.ProfileService;
+import pe.programadoredeslavadoras.ficuniverse.profile2.mapping.ProfileMapper;
+import pe.programadoredeslavadoras.ficuniverse.profile2.resource.CreateProfileResource;
+import pe.programadoredeslavadoras.ficuniverse.profile2.resource.ProfileResource;
 
 import java.util.List;
 import java.util.stream.Collectors;

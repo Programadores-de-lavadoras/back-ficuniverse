@@ -1,7 +1,7 @@
-package pe.programadoredeslavadoras.ficuniverse.profile.domain.persistence;
+package pe.programadoredeslavadoras.ficuniverse.profile2.domain.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pe.programadoredeslavadoras.ficuniverse.profile.domain.model.entity.Profile;
+import pe.programadoredeslavadoras.ficuniverse.profile2.domain.model.entity.Profile;
 
 import java.util.Optional;
 
